@@ -13,9 +13,17 @@
   <script>
     const tweetsElement = document.getElementById("tweets")
     //tweetsElement.innerHTML = 'Loading...'
+    function handleDidLike(tweet_id, currentCount){
+      console.log(tweet_id, currentCount)
+    }
 
+    function LikeBtn(tweet){
+      return "<button class='btn btn-primary' onclick=handleDidLike(" + tweet.id + "," + tweet.likes + ")>" + tweet.likes + " Likes</button>"
+    }
     function formatTweetElement(tweet) {
-      var formatedTweet = "<div class='mb-4' id='tweet-" +tweet.id +"'>"+ tweet.id + "<p>"+ tweet.content+"</p></div>"
+      var formatedTweet = "<div class='mb-4' id='tweet-" +tweet.id +"'>"+ tweet.id + "<p>"+ tweet.content+ "</p>" +
+      "<div class='btn-group'>" + LikeBtn(tweet) + "</div>" +
+      "</div>"
       return formatedTweet
     }
     const xhr = new XMLHttpRequest()
