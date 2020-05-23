@@ -6,4 +6,38 @@
 
 {% block content %}
   Welcome to Tweetme 2
+
+  <div id="tweets">
+    Loading...
+  </div>
+  <script>
+    const tweetsElement = document.getElementById("tweets")
+    //tweetsElement.innerHTML = 'Loading...'
+
+    function formatTweetElement(tweet) {
+      var formatedTweet = "<div class='mb-4' id='tweet-" +tweet.id +"'>"+ tweet.id + "<p>"+ tweet.content+"</p></div>"
+      return formatedTweet
+    }
+    const xhr = new XMLHttpRequest()
+    const method = 'GET' // "POST"
+    const url = '/tweets'
+    const responseType = 'json'
+
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function() {
+      const serverResponse = xhr.response
+      const listedItems = serverResponse.response
+      var finalTweetStr = ""
+      var i
+      for (i=0; i<listedItems.length; i++){
+        var tweetObj = listedItems[i]
+        finalTweetStr += formatTweetElement(tweetObj)
+      }
+      tweetsElement.innerHTML = finalTweetStr
+      console.log(listedItems)
+    }
+    xhr.send()
+
+  </script>
 {% endblock content %}
