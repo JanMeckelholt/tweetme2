@@ -11,6 +11,19 @@
     </div>
   </div>
 
+  <div class="row mb-3">
+    <div class="col-md-4 mx-auto col-10">
+      <form class="form" action="/create-tweet" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="/">
+        <textarea class="form-control" name="content" placeholder="Your teeet..."></textarea>
+        <button class="btn btn-primary" type="submit">Tweet!</button>
+      </form>
+
+    </div>
+
+  </div>
+
     <div class="row "id="tweets">
       Loading...
     </div>
@@ -26,7 +39,7 @@
       return "<button class='btn btn-primary' onclick=handleDidLike(" + tweet.id + "," + tweet.likes + ")>" + tweet.likes + " Likes</button>"
     }
     function formatTweetElement(tweet) {
-      var formatedTweet = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 id='tweet-" +tweet.id +"'>"+ tweet.id + "<p>"+ tweet.content+ "</p>" +
+      var formatedTweet = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 id='tweet-" +tweet.id +"'>"+"<p>"+ tweet.content+ "</p>" +
       "<div class='btn-group'>" + LikeBtn(tweet) + "</div>" +
       "</div>"
       return formatedTweet
