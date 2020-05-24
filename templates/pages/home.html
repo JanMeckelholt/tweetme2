@@ -5,11 +5,16 @@
 {% endblock headtitle %}
 
 {% block content %}
-  Welcome to Tweetme 2
-
-  <div id="tweets">
-    Loading...
+  <div class="row">
+    <div class="col text-center">
+      <h1>Welcome to Tweetme 2</h1>
+    </div>
   </div>
+
+    <div class="row "id="tweets">
+      Loading...
+    </div>
+
   <script>
     const tweetsElement = document.getElementById("tweets")
     //tweetsElement.innerHTML = 'Loading...'
@@ -21,7 +26,7 @@
       return "<button class='btn btn-primary' onclick=handleDidLike(" + tweet.id + "," + tweet.likes + ")>" + tweet.likes + " Likes</button>"
     }
     function formatTweetElement(tweet) {
-      var formatedTweet = "<div class='mb-4' id='tweet-" +tweet.id +"'>"+ tweet.id + "<p>"+ tweet.content+ "</p>" +
+      var formatedTweet = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 id='tweet-" +tweet.id +"'>"+ tweet.id + "<p>"+ tweet.content+ "</p>" +
       "<div class='btn-group'>" + LikeBtn(tweet) + "</div>" +
       "</div>"
       return formatedTweet
