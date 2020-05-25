@@ -51,8 +51,17 @@
           const ogHtml = tweetsContainerElement.innerHTML
           tweetsContainerElement.innerHTML = newTweetElement + ogHtml
           myForm.reset()
+        } else if (xhr.status === 400){
+            const errorJson = xhr.response
+            console.log(errorJson)
+            alert(errorJson.content)
+        } else if (xhr.status === 500){
+            alert("Serverside Error!")
         }
 
+      }
+      xhr.onerror = function(){
+          alert("An error occured. Please try again later.")
       }
       xhr.send(myFormData)
     }
