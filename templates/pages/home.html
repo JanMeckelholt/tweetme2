@@ -101,8 +101,8 @@
       xhr.responseType = responseType
       xhr.open(method, url)
       xhr.onload = function() {
-        const serverResponse = xhr.response
-        const listedItems = serverResponse.response
+        //const serverResponse = xhr.response
+        const listedItems = xhr.response
         var finalTweetStr = ""
         var i
         for (i=0; i<listedItems.length; i++){
