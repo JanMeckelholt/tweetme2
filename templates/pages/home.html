@@ -75,6 +75,9 @@
             else {
               altert("An error occoured!")
             }
+        } else if (xhr.status === 401){
+            alert("You must login!")
+            window.location.href = "/login"
         } else if (xhr.status === 500){
             alert("Serverside Error!")
         }
