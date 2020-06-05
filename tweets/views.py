@@ -117,6 +117,7 @@ def tweets_list_view_pure_django(request, *args, **kwargs):
         "response": tweets_list
     }
     return JsonResponse(data)
+    #Comment
 
 def tweet_detail_view_pure_django(request, tweet_id, *args, **kwargs):
     print(args, kwargs)
