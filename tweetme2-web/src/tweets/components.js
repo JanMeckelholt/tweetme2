@@ -2,7 +2,6 @@ import React,  {useEffect, useState} from 'react'
 import {loadTweets} from '../lookup'
 
 export function TweetsComponent(props){
-
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(event)
